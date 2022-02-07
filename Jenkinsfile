@@ -40,7 +40,7 @@ if (getRCBranches.equals(200)) {
 pipeline {
     agent any
     parameters {
-        string(name: 'USER', defaultValue: 'nirgeier', description: 'Enter GitHub User:')}
+        string(name: 'USER', defaultValue: 'null', description: 'Enter GitHub User:')}
     stages {
         stage('Parameters'){
             steps {
@@ -103,6 +103,9 @@ pipeline {
             }
         }
         stage('checkout scm') {
+            when{
+               expression { params.USER != 'null' && params.REPO!='null' && params.BRANCH!='null' }
+            }
             steps {
                 //Mkdir if not exist for the params.REPO
                 sh "mkdir -p ${params.REPO}"
