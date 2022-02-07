@@ -126,7 +126,7 @@ if (getRCBranches.equals(200)) {
         namesBr.push(branch.name);
     } 
     return namesBr;
-}""";
+}"""]
                                     ] 
                                 ]
                             ]
