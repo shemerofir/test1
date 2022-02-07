@@ -1,4 +1,4 @@
-def gitHubUser = "${params.USER}"
+def gitHubUser = "${userInput['USER']}"
 
 def repoScript = """import groovy.json.JsonSlurper
 def get = new URL("https://api.github.com/users/${gitHubUser}/repos").openConnection();
@@ -44,12 +44,14 @@ pipeline {
             steps {
                 script {
                 properties([
-                  
+                            def userInput = input(
+ id: 'USER', message: 'enter user', parameters: [
+   string(defaultValue: 'shemerofir', description: 'Enter User:', name: 'USER')
+])
                         //Creating the parameters, make sure you have Active Choice plugin installed
                         parameters([
-                            def userInput = input(
-                            string(defaultValue: 'shemerofir', description: 'Enter User:', name: 'USER')),
-                            [$class: 'CascadeChoiceParameter', 
+                          ,
+                            [$class: 'ChoiceParameter', 
                                 //Single combo-box item select type of choice
                                 choiceType: 'PT_SINGLE_SELECT', 
                                 description: 'Select the Repository from the Dropdown List', 
@@ -57,7 +59,6 @@ pipeline {
                                 filterable: false, 
                                 //Important for identify it in the cascade choice parameter and the params. values
                                 name: 'REPO', 
-                                referencedParameters: 'USER',
                                 script: [
                                     $class: 'GroovyScript', 
                                     //Error script
@@ -65,7 +66,7 @@ pipeline {
                                         classpath: [], 
                                         sandbox: false, 
                                         script: 
-                                            "return ['null']"
+                                            "return ['cant get repos']"
                                     ], 
                                     script: [
                                         classpath: [], 
