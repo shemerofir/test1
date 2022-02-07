@@ -86,7 +86,7 @@ if (getRC.equals(200)) {
         names.push(repo.name);
     }   
     return names;
-}""";
+}"""]
                                         
                                     ]
                                 ]
