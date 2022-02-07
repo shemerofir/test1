@@ -48,7 +48,7 @@ pipeline {
                         //Creating the parameters, make sure you have Active Choice plugin installed
                         parameters([
                             string(defaultValue: 'shemerofir', description: 'Enter User:', name: 'USER'),
-                            [$class: 'ChoiceParameter', 
+                            [$class: 'CascadeChoiceParameter', 
                                 //Single combo-box item select type of choice
                                 choiceType: 'PT_SINGLE_SELECT', 
                                 description: 'Select the Repository from the Dropdown List', 
@@ -56,6 +56,7 @@ pipeline {
                                 filterable: false, 
                                 //Important for identify it in the cascade choice parameter and the params. values
                                 name: 'REPO', 
+                                referencedParameters: 'USER'
                                 script: [
                                     $class: 'GroovyScript', 
                                     //Error script
