@@ -50,7 +50,6 @@ pipeline {
 ])
                         //Creating the parameters, make sure you have Active Choice plugin installed
                         parameters([
-                          ,
                             [$class: 'ChoiceParameter', 
                                 //Single combo-box item select type of choice
                                 choiceType: 'PT_SINGLE_SELECT', 
