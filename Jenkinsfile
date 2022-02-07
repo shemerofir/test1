@@ -39,8 +39,6 @@ if (getRCBranches.equals(200)) {
 
 pipeline {
     agent any
-    parameters {
-        string(name: 'USER', defaultValue: 'null', description: 'Enter GitHub User:')}
     stages {
         stage('Parameters'){
             steps {
@@ -48,6 +46,7 @@ pipeline {
                 properties([
                         //Creating the parameters, make sure you have Active Choice plugin installed
                         parameters([
+                            [string(name: 'USER', defaultValue: 'null', description: 'Enter GitHub User:')]
                             [$class: 'ChoiceParameter', 
                                 //Single combo-box item select type of choice
                                 choiceType: 'PT_SINGLE_SELECT', 
@@ -114,7 +113,7 @@ pipeline {
                     //Pulling the git repo
                     git branch: "${params.BRANCH}", 
                         poll: false, 
-                        url: "https://github.com/${gitHubUser}/${params.REPO}.git"
+                        url: "https://github.com/${params.USER}/${params.REPO}.git"
                 }
             }
         }
