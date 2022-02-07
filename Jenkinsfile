@@ -63,7 +63,7 @@ pipeline {
                                         classpath: [], 
                                         sandbox: false, 
                                         script: 
-                                            "return['Could not get The Repos']"
+                                            "return ['null']"
                                     ], 
                                     script: [
                                         classpath: [], 
@@ -87,7 +87,7 @@ pipeline {
                                     fallbackScript: [
                                             classpath: [], 
                                             sandbox: false, 
-                                            script: "return['Could not get Branch from the Repo']"
+                                            script: "return ['null']"
                                             ], 
                                     script: [
                                             classpath: [], 
