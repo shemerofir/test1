@@ -1,4 +1,4 @@
-def gitHubUser = "${USER}"
+def gitHubUser = "${params.USER}"
 
 def repoScript = """import groovy.json.JsonSlurper
 def get = new URL("https://api.github.com/users/${gitHubUser}/repos").openConnection();
