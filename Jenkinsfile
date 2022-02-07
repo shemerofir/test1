@@ -44,9 +44,9 @@ pipeline {
             steps {
                 script {
                 properties([
+                        parameters([string(defaultValue: 'null', description: 'Enter User:', name: 'USER')])
                         //Creating the parameters, make sure you have Active Choice plugin installed
                         parameters([
-                            ([string(defaultValue: 'null', description: 'ENTER GITHUB USER:', name: 'USER')]),
                             [$class: 'ChoiceParameter', 
                                 //Single combo-box item select type of choice
                                 choiceType: 'PT_SINGLE_SELECT', 
