@@ -56,7 +56,7 @@ pipeline {
                                 filterable: false, 
                                 //Important for identify it in the cascade choice parameter and the params. values
                                 name: 'REPO', 
-                                referencedParameters: 'USER'
+                                referencedParameters: 'USER',
                                 script: [
                                     $class: 'GroovyScript', 
                                     //Error script
