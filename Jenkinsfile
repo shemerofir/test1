@@ -39,6 +39,8 @@ if (getRCBranches.equals(200)) {
 
 pipeline {
     agent any
+    parameters {
+        string(name: 'USER', defaultValue: 'nirgeier', description: 'Enter GitHub User:')}
     stages {
         stage('Parameters'){
             steps {
