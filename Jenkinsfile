@@ -104,7 +104,7 @@ pipeline {
         }
         stage('checkout scm') {
             when{
-               expression { params.USER != 'null' && params.REPO!='null' && params.BRANCH!='null' }
+               expression { params.USER!= 'null' && params.REPO!='null' && params.BRANCH!='null' }
             }
             steps {
                 //Mkdir if not exist for the params.REPO
