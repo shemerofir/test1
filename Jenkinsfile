@@ -1,4 +1,4 @@
-def gitHubUser = "${userInput}"
+def gitHubUser = "${USER}"
 
 def repoScript = """import groovy.json.JsonSlurper
 def get = new URL("https://api.github.com/users/${gitHubUser}/repos").openConnection();
@@ -44,12 +44,10 @@ pipeline {
             steps {
                 script {
                 properties([
-                            def userInput = input(
- id: 'USER', message: 'enter user', parameters: [
-   string(defaultValue: 'shemerofir', description: 'Enter User:', name: 'USER')
-])
+                          
                         //Creating the parameters, make sure you have Active Choice plugin installed
                         parameters([
+                               string(defaultValue: 'shemerofir', description: 'Enter User:', name: 'USER'),
                             [$class: 'ChoiceParameter', 
                                 //Single combo-box item select type of choice
                                 choiceType: 'PT_SINGLE_SELECT', 
