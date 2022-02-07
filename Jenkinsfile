@@ -47,7 +47,7 @@ pipeline {
                   
                         //Creating the parameters, make sure you have Active Choice plugin installed
                         parameters([
-                            string(defaultValue: '', description: 'Enter User:', name: 'USER'),
+                            string(defaultValue: 'shemerofir', description: 'Enter User:', name: 'USER'),
                             [$class: 'ChoiceParameter', 
                                 //Single combo-box item select type of choice
                                 choiceType: 'PT_SINGLE_SELECT', 
