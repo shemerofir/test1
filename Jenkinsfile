@@ -43,7 +43,7 @@ pipeline {
     stages {
         stage('Parameters'){
             steps {
-                echo "${gitHubUser}"
+                
                 script {
                 properties([
                           
@@ -104,6 +104,7 @@ pipeline {
                         ])
                     ])
                 }
+                echo params.USER
             }
         }
         stage('checkout scm') {
