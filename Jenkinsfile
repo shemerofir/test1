@@ -1,7 +1,7 @@
 def gitHubUser = params.USER
 
 def repoScript = """import groovy.json.JsonSlurper
-def get = new URL("https://api.github.com/users/${gitHubUser}/repos").openConnection();
+def get = new URL("https://api.github.com/users/"+params.USER+"/repos").openConnection();
 def getRC = get.getResponseCode();
 
 if (getRC.equals(200)) {
