@@ -2,6 +2,7 @@ def gitHubUser = "$params.USER"
 
 def repoScript = """import groovy.json.JsonSlurper
 def get = new URL("https://api.github.com/users/${gitHubUser}/repos").openConnection();
+echo "https://api.github.com/users/${gitHubUser}/repos"
 def getRC = get.getResponseCode();
 
 if (getRC.equals(200)) {
@@ -21,6 +22,7 @@ if (getRC.equals(200)) {
 //Script for the branch, you can reference the previous script value witn the "REPO" variable
 def branchScript = """import groovy.json.JsonSlurper
 def getBranches = new URL("https://api.github.com/repos/${gitHubUser}/" + REPO + "/branches").openConnection();
+
 def getRCBranches = getBranches.getResponseCode();
 
 if (getRCBranches.equals(200)) {
@@ -72,7 +74,7 @@ pipeline {
                                         sandbox: false, 
                                         //Calling local variable with the script as a string
                                         script: "${repoScript}"
-                                        echo "https://api.github.com/users/${gitHubUser}/repos"
+                                        
                                         
                                     ]
                                 ]
