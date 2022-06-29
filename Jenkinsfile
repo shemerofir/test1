@@ -15,6 +15,7 @@ if (getRC.equals(200)) {
     item.each { repo ->
         names.push(repo.name);
     }   
+    echo names;
     return names;
 }""";
 
