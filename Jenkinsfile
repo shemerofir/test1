@@ -15,8 +15,8 @@ if (getRC.equals(200)) {
     item.each { repo ->
         names.push(repo.name);
     }   
-    echo names;
-    return names;
+    echo ${names};
+    return ${names};
 }""";
 
 //Script for the branch, you can reference the previous script value witn the "REPO" variable
